@@ -1,0 +1,20 @@
+cabal-version:      3.4
+name:               coding-task
+version:            0.1.0.0
+synopsis:           Coding task for SimCorp.
+license:            GPL-3.0-only
+license-file:       LICENSE
+author:             Frederik Krogsdal Jacobsen
+maintainer:         fkjacobsen@gmail.com
+category:           Text
+build-type:         Simple
+                    
+common warnings
+    ghc-options: -Wall
+
+executable coding-task
+    import:           warnings
+    main-is:          Main.hs
+    build-depends:    base ^>=4.17.2.1
+    hs-source-dirs:   app
+    default-language: GHC2024
