@@ -27,3 +27,15 @@ library
     hs-source-dirs:   lib
     exposed-modules:  WordCounter
     default-language: GHC2021
+
+test-suite tests
+    import:           common-options
+    type:             exitcode-stdio-1.0
+    default-language: GHC2021
+    hs-source-dirs:   test
+    main-is:          Spec.hs
+    build-depends:    hspec ^>=2.11.9
+                    , QuickCheck ^>=2.15.0.1
+                    , coding-task
+                    , text ^>= 2.1.1
+                    , quickcheck-text ^>= 0.1.2.1
