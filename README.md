@@ -65,7 +65,7 @@ cabal build
 You can run the program by providing it with the name of a text file to count words in.
 For example, you can run the test example with Cabal:
 ```sh
-cabal run coding-task -- test-data/given-text.txt
+cabal run word-counter -- test-data/given-text.txt
 ```
 outputs:
 ```
