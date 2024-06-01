@@ -4,7 +4,7 @@ It outputs the number of occurrences as a list of occurrences and words, sorted 
 
 A word in this context is a sequence of Unicode characters separated by any type of whitespace.
 This means that the program is not opinionated about what words can be.
-In particular, punctuation marks and special characters are part of words, such that e.g. "What" and "What?" are counted separately.
+In particular, punctuation marks and special characters are part of words, such that the program counts e.g. "What" and "What?" separately.
 
 ## Running via Docker
 If you don't want to compile and run the program on your own computer, you can run it in a Docker container.
@@ -43,7 +43,7 @@ If you need to share your Docker image, you can export it using
 ```
 docker save -o word-counter-docker-image.tar word-counter
 ```
-This image can then be loaded using the instructions above (even if it is first compressed using e.g. gzip).
+You can then load the image using the instructions above (even if it is first compressed using e.g. gzip).
 
 ## Compilation
 The program is implemented in Haskell.
@@ -52,18 +52,18 @@ To compile the program you will need the following:
 * [The Glasgow Haskell compiler (ghc)](https://www.haskell.org/ghc/) (tested with version 9.4.8)
 * [The Cabal build system (cabal)](https://www.haskell.org/cabal/) (tested with version 3.10.3.0)
 
-If you are on a Linux system, most of these can probably be installed through the package manager of your distribution.
-Otherwise, you will have to manually install each of them following the instructions on the pages linked above.
+If you are on a Linux system, you can probably install these through the package manager of your distribution.
+Otherwise, you will have to manually install them following the instructions on the pages linked above.
 If you are on Windows, you may additionally want a Cygwin installation to get a Unix-like environment.
 
-If the environment is correctly set up, the program can be compiled with:
+If the environment is correctly set up, you can compile the program with:
 ```sh
 cabal build
 ```
 
 ## Running with Cabal
-The program can be run by providing it with the name of a text file to count words in.
-For example, the test example can be run with Cabal as follows:
+You can run the program by providing it with the name of a text file to count words in.
+For example, you can run the test example with Cabal:
 ```sh
 cabal run coding-task -- test-data/given-text.txt
 ```
@@ -80,13 +80,13 @@ outputs:
 
 ## Testing
 The program has a test suite using HSpec and QuickCheck.
-The test suite can be run using Cabal:
+You can run the test suite using Cabal:
 ```sh
 cabal test --test-show-details=direct
 ```
 
 ## Assumptions
-The program makes a few assumptions to simplify its design:
+The program makes some assumptions to simplify its design:
 - Files are validly Unicode-encoded
 - Files are small enough to fit in memory
 - Words can consist of anything, even non-letter forms such as symbols and punctuation
@@ -95,7 +95,7 @@ The program makes a few assumptions to simplify its design:
 
 ## Implementation
 The program is implemented in Haskell with Cabal.
-It uses the `hashtables` library for fast hash tables and the `text` library for unicode text processing.
+It uses the `hashtables` library for fast hash tables and the `text` library for Unicode text processing.
 
 The program works in the following stages:
 - Attempt to read the given file, exiting with an error if this is not possible (or if no file is given)
@@ -111,7 +111,7 @@ If we had more information about the words in the text, we might be able to twea
 
 The program assumes that words can consist of any type of characters (except whitespace).
 This assumption was made for portability, since the Haskell libraries for advanced Unicode processing require extra libraries to be available at runtime.
-The program assumes that that each word occurs fewer than 2^29 times, which allows it to use `Int` instead of `Integer` for performance.
+The program assumes that each word occurs fewer than 2^29 times, which allows it to use `Int` instead of `Integer` for performance.
 
 ## Performance
 The program works in a pipeline consisting of the following steps:
