@@ -19,7 +19,7 @@ docker load -i word-counter-docker-image.tar.gz
 To use the program, you will need to give the Docker container access to a directory on your machine so it can read files.
 You can give the container access to the current working directory and make the program read a file with e.g.:
 ```
-docker run -v .:/outside word-counter test-data/given-text.txt
+docker run -v .:/outside word-counter /outside/test-data/given-text.txt
 ```
 This should output:
 ```
