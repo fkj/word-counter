@@ -1,7 +1,7 @@
 cabal-version:      3.4
-name:               coding-task
+name:               word-counter
 version:            0.1.0.0
-synopsis:           Coding task for SimCorp.
+synopsis:           Counts words in a text file.
 license:            GPL-3.0-only
 license-file:       LICENSE
 author:             Frederik Krogsdal Jacobsen
@@ -13,10 +13,10 @@ common common-options
     ghc-options: -Wall
     build-depends: base ^>=4.17.2.1
 
-executable coding-task
+executable word-counter
     import:           common-options
     main-is:          Main.hs
-    build-depends:    coding-task
+    build-depends:    word-counter
     hs-source-dirs:   app
     default-language: GHC2021
 
@@ -36,6 +36,6 @@ test-suite tests
     main-is:          Spec.hs
     build-depends:    hspec ^>=2.11.9
                     , QuickCheck ^>=2.15.0.1
-                    , coding-task
+                    , word-counter
                     , text ^>= 2.1.1
                     , quickcheck-text ^>= 0.1.2.1
