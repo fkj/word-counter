@@ -22,7 +22,7 @@ You can give the container access to the current working directory and make the 
 docker run -v .:/outside word-counter test-data/given-text.txt
 ```
 This should output:
-```sh
+```
 2: do
 2: that
 1: go
@@ -68,7 +68,7 @@ For example, the test example can be run with Cabal as follows:
 cabal run coding-task -- test-data/given-text.txt
 ```
 outputs:
-```sh
+```
 2: do
 2: that
 1: go
